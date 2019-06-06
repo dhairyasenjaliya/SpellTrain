@@ -6,16 +6,23 @@ import {
 } from './src/screens';
 
 registerScreens();
-
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
       stack: {
         children: [{
           component: {
-            name: 'Login'   
+            name: 'Login'
           }
         }],
+        options: {
+          topBar: {
+            title: {
+              text: 'Demo',
+            }, 
+            height: 0
+          }
+        }
       }
     }
   });
