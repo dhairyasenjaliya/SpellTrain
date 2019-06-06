@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 import {Platform, Button, StyleSheet, Text, View,Image,ImageBackground ,TouchableOpacity ,Picker,Dimensions} from 'react-native'; 
 import CardView from 'react-native-rn-cardview';
+import {Navigation} from 'react-native-navigation'; 
   
 const { width,height } = Dimensions.get('window');  
 
@@ -45,7 +46,17 @@ export default class App extends PureComponent {
                 </Picker>  
             </View>
         </CardView>
-          <TouchableOpacity style = {{ top :-40 }}> 
+          <TouchableOpacity style = {{ top :-40 }}
+          onPress = {
+                () => {
+                  Navigation.pop(this.props.componentId, {
+                    component: {
+                      name: 'Home',
+                    }
+                  });
+                }
+              }
+          > 
               <Text style={styles.button}> <Image source={require('/Users/mymac/Development/react-native/navigation/images/loading.png')}/> Processing...</Text> 
           </TouchableOpacity>
         </ImageBackground>

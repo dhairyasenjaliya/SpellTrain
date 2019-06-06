@@ -14,6 +14,7 @@ import {
   Dimensions
 } from 'react-native';
 import CardView from 'react-native-rn-cardview';
+import {Navigation} from 'react-native-navigation'; 
   
 const { width,height } = Dimensions.get('window');  
 
@@ -103,6 +104,15 @@ export default class App extends PureComponent {
                   shadowRadius: 16.00,
                   shadowColor: "#000",
                   elevation: 12,
+                }
+              }
+              onPress = {
+                () => {
+                  Navigation.pop(this.props.componentId, {
+                    component: {
+                      name: 'Home',
+                    }
+                  });
                 }
               }
           >

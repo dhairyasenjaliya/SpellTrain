@@ -15,6 +15,7 @@ import {
   CheckBox
 } from 'react-native';
 import CardView from 'react-native-rn-cardview';
+import {Navigation} from 'react-native-navigation'; 
   
 const { width,height } = Dimensions.get('window');  
 
@@ -218,8 +219,17 @@ export default class App extends PureComponent {
                   elevation: 12,
                 }
               }
-          >
-              <Text style = {{ fontSize: 20 , color : '#ffffff' , alignSelf :'center' , fontWeight : '400'}} >View Leaderboard</Text>
+             onPress = {
+               () => {
+                 Navigation.pop(this.props.componentId, {
+                   component: {
+                     name: 'Home',
+                   }
+                 });
+               }
+             }  
+          > 
+           <Text style = {{ fontSize: 20 , color : '#ffffff' , alignSelf :'center' , fontWeight : '400'}} >View Leaderboard</Text>
           </TouchableOpacity> 
 
           </CardView>

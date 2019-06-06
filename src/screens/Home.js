@@ -81,15 +81,15 @@ export default class App extends PureComponent {
             <View style = {styles.viewTwo}>
               <TouchableOpacity style={styles.button}
               
-              onPress = {
-                () => {
-                  Navigation.push(this.props.componentId, {
-                    component: {
-                      name: 'Settings',
-                    }
-                  });
-                }
-              }
+              // onPress = {
+              //   () => {
+              //     Navigation.push(this.props.componentId, {
+              //       component: {
+              //         name: 'Settings',
+              //       }
+              //     });
+              //   }
+              // }
 
               >   
                 <Image 
