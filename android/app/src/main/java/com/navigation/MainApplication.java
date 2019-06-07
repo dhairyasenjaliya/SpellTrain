@@ -3,6 +3,7 @@ package com.navigation;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import org.reactnative.camera.RNCameraPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -15,7 +16,7 @@ import com.reactnativenavigation.react.ReactGateway;
 import com.masteratul.exceptionhandler.ReactNativeExceptionHandlerPackage;
 
 import com.quenice.reactnative.RNCardViewPackage;
-
+import org.reactnative.camera.RNCameraPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -42,7 +43,8 @@ public class MainApplication extends NavigationApplication {
     // No need to add RnnPackage and MainReactPackage
     return Arrays.<ReactPackage>asList(
         new ReactNativeExceptionHandlerPackage(),
-        new RNCardViewPackage()
+        new RNCardViewPackage(),
+        new RNCameraPackage()
     // eg. new VectorIconsPackage()
     );
   }

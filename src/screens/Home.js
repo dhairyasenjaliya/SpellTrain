@@ -81,23 +81,24 @@ export default class App extends PureComponent {
             <View style = {styles.viewTwo}>
               <TouchableOpacity style={styles.button}
               
-              // onPress = {
-              //   () => {
-              //     Navigation.push(this.props.componentId, {
-              //       component: {
-              //         name: 'Settings',
-              //       }
-              //     });
-              //   }
-              // }
+              onPress = {
+                () => {
+                  Navigation.push(this.props.componentId, {
+                    component: {
+                      name: 'Camera',
+                    }
+                  });
+                }
+              }
 
               >   
-                <Image 
+                <Image   
+                      style  = {{ height:65 , width : 65 }}
                       source = {
-                        require('/Users/mymac/Development/react-native/navigation/images/setting.png')
+                        require('/Users/mymac/Development/react-native/navigation/images/camera.png')
                       }
                     /> 
-                <Text style={styles.buttonText}>Settings</Text> 
+                <Text style={styles.buttonText}>Camera</Text> 
               </TouchableOpacity>  
               </View>
           </View>  

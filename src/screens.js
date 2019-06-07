@@ -10,7 +10,7 @@ export function registerScreens() {
   Navigation.registerComponent('StartTraining', () => require('./screens/StartTraining').default);
 
   Navigation.registerComponent('Profile', () => require('./screens/Profile').default);
-  Navigation.registerComponent('Settings', () => require('./screens/Settings').default);
+  Navigation.registerComponent('Camera', () => require('./screens/Camera').default);
   Navigation.registerComponent('WordList', () => require('./screens/WordList').default);
 
 }
