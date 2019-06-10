@@ -12,3 +12,7 @@ project(':react-native-exception-handler').projectDir = new File(rootProject.pro
 
 include ':react-native-rn-cardview'
 project(':react-native-rn-cardview').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-rn-cardview/android')
+
+
+include ':react-native-maps'
+project(':react-native-maps').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-maps/lib/android')

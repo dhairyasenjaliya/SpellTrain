@@ -12,6 +12,7 @@ import com.facebook.soloader.SoLoader;
 import com.reactnativenavigation.NavigationApplication;
 import com.reactnativenavigation.react.NavigationReactNativeHost;
 import com.reactnativenavigation.react.ReactGateway;
+import com.airbnb.android.react.maps.MapsPackage;
 
 import com.masteratul.exceptionhandler.ReactNativeExceptionHandlerPackage;
 
@@ -44,7 +45,9 @@ public class MainApplication extends NavigationApplication {
     return Arrays.<ReactPackage>asList(
         new ReactNativeExceptionHandlerPackage(),
         new RNCardViewPackage(),
-        new RNCameraPackage()
+        new RNCameraPackage(),
+        new MainReactPackage(), 
+        new MapsPackage()
     // eg. new VectorIconsPackage()
     );
   }

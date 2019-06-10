@@ -12,5 +12,7 @@ export function registerScreens() {
   Navigation.registerComponent('Profile', () => require('./screens/Profile').default);
   Navigation.registerComponent('Camera', () => require('./screens/Camera').default);
   Navigation.registerComponent('WordList', () => require('./screens/WordList').default);
+  Navigation.registerComponent('Map', () => require('./screens/Map').default);
+
 
 }
