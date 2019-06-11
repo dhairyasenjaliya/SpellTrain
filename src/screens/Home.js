@@ -116,7 +116,7 @@ export default class App extends PureComponent {
 								onPress={() => {
 									Navigation.push(this.props.componentId, {
 										component: {
-											name: 'Map',
+											name: 'FireBase',
 										},
 									});
 								}}

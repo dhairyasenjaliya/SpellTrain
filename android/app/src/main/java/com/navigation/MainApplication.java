@@ -3,6 +3,9 @@ package com.navigation;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+
+import io.invertase.firebase.RNFirebasePackage;
+
 import org.reactnative.camera.RNCameraPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -13,6 +16,10 @@ import com.reactnativenavigation.NavigationApplication;
 import com.reactnativenavigation.react.NavigationReactNativeHost;
 import com.reactnativenavigation.react.ReactGateway;
 import com.airbnb.android.react.maps.MapsPackage;
+
+ 
+import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
+import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
 
 import com.masteratul.exceptionhandler.ReactNativeExceptionHandlerPackage;
 
@@ -44,9 +51,16 @@ public class MainApplication extends NavigationApplication {
     // No need to add RnnPackage and MainReactPackage
     return Arrays.<ReactPackage>asList(
         new ReactNativeExceptionHandlerPackage(),
+
         new RNCardViewPackage(),
+
         new RNCameraPackage(),
-        new MainReactPackage(), 
+        new MainReactPackage(),
+
+        new RNFirebasePackage(), 
+        new RNFirebaseMessagingPackage(),
+        new RNFirebaseNotificationsPackage(),
+        
         new MapsPackage()
     // eg. new VectorIconsPackage()
     );
@@ -56,4 +70,5 @@ public class MainApplication extends NavigationApplication {
   public List<ReactPackage> createAdditionalReactPackages() {
     return getPackages();
   }
+  
 }

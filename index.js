@@ -4,7 +4,7 @@ import {
 import {
   registerScreens
 } from './src/screens';
-
+ 
 registerScreens();
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
@@ -12,7 +12,7 @@ Navigation.events().registerAppLaunchedListener(() => {
       stack: {
         children: [{
           component: {
-            name: 'Login'
+            name: 'FireBase'
           }
         }],
         options: {
