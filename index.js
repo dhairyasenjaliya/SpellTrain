@@ -12,7 +12,7 @@ Navigation.events().registerAppLaunchedListener(() => {
       stack: {
         children: [{
           component: {
-            name: 'FireBase'
+            name: 'Login'
           }
         }],
         options: {

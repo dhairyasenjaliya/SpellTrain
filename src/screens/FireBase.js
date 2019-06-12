@@ -65,13 +65,15 @@ class FireBase extends PureComponent {
 
 					<TouchableHighlight
 						style={styles.button}
-						onPress={() => {
-							Navigation.push(this.props.componentId, {
+						onPress={
+							() => {
+								Navigation.push(this.props.componentId, {
 								component: {
 									name: 'Home',
 								},
+
 							});
-						}}
+						} }
 					>
 						<Text style={styles.buttonText}>Home</Text>
 					</TouchableHighlight>

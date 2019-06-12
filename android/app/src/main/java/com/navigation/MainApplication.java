@@ -21,6 +21,8 @@ import com.airbnb.android.react.maps.MapsPackage;
 import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
 import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
 
+import io.invertase.firebase.auth.RNFirebaseAuthPackage;
+
 import com.masteratul.exceptionhandler.ReactNativeExceptionHandlerPackage;
 
 import com.quenice.reactnative.RNCardViewPackage;
@@ -61,6 +63,8 @@ public class MainApplication extends NavigationApplication {
         new RNFirebaseMessagingPackage(),
         new RNFirebaseNotificationsPackage(),
         
+        new RNFirebaseAuthPackage(),
+
         new MapsPackage()
     // eg. new VectorIconsPackage()
     );

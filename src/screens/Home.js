@@ -3,8 +3,18 @@ import React, {
 } from 'react';
 import {Platform, StyleSheet, Text, View,Image,ImageBackground ,TouchableOpacity ,ScrollView} from 'react-native';  
 import {Navigation} from 'react-native-navigation'; 
-  
+import firebase from 'react-native-firebase';
+
+
 export default class App extends PureComponent { 
+
+	// state = { currentUser: null }
+  // componentDidMount() {
+  //   const { currentUser } = firebase.auth()
+	// 	this.setState({ currentUser })
+	// 	console.warn(this.state.currentUser)
+	// }
+
   render() {
     return (
 		<View style={styles.container}>

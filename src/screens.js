@@ -14,4 +14,8 @@ export function registerScreens() {
   Navigation.registerComponent('WordList', () => require('./screens/WordList').default);
   Navigation.registerComponent('Map', () => require('./screens/Map').default);
   Navigation.registerComponent('FireBase', () => require('./screens/FireBase').default);  
+  Navigation.registerComponent('SignUp', () => require('./screens/SignUp').default);  
+  Navigation.registerComponent('SignUp', () => require('./screens/SignUp').default);  
+  Navigation.registerComponent('Initialize', () => require('./screens/Initialize').default);  
+
 }
