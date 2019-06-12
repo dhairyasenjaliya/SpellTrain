@@ -14,6 +14,7 @@ import {
 	Alert,
 	YellowBox,  
 } from 'react-native';  
+import { LoginButton, AccessToken } from 'react-native-fbsdk';
 
 YellowBox.ignoreWarnings(['Require cycle:']); 
 
@@ -93,7 +94,11 @@ class Login extends PureComponent {
 							placeholder="Email"
 							autoCapitalize="none"
 							// style={styles.textInput}
-							style={ this.state.errorMessage === 'Email is Not Correct' ? styles.errorValidation : styles.textInput}
+							style={
+								this.state.errorMessage === 'Email is Not Correct'
+									? styles.errorValidation
+									: styles.textInput
+							}
 							onChangeText={
 								// email => this.setState({ email })
 								text => this.validate(text)
@@ -133,7 +138,22 @@ class Login extends PureComponent {
 					>
 						<Text style={styles.buttonText}>SignUp</Text>
 					</TouchableHighlight>
-
+					<View style = {{ alignSelf:'center' ,top : 100}}>
+						<LoginButton
+							onLoginFinished={(error, result) => {
+								if (error) {
+									console.warn('login has error: ' + result.error);
+								} else if (result.isCancelled) {
+									console.warn('login is cancelled.');
+								} else {
+									AccessToken.getCurrentAccessToken().then(data => {
+										console.warn(data.accessToken.toString());
+									});
+								}
+							}}
+							onLogoutFinished={() => console.log('logout.')}
+						/>
+					</View>
 					{/* <Text style={styles.amazon} > What is Amazon Alexa?</Text> */}
 				</ImageBackground>
 			</View>
