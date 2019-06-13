@@ -19,7 +19,8 @@ import {
 } from 'react-native';  
 
 import { LoginButton, AccessToken, LoginManager } from 'react-native-fbsdk'; 
-   
+	 
+import SplashScreen from 'react-native-splash-screen';
 
 YellowBox.ignoreWarnings(['Require cycle:']); 
 
@@ -93,6 +94,11 @@ class Login extends PureComponent {
 	};
 
 	componentDidMount() {
+
+		setTimeout(() => {
+			SplashScreen.hide();
+		}, 1000);
+
 		GoogleSignin.configure({
 			//It is mandatory to call this method before attempting to call signIn()
 			scopes: ['https://www.googleapis.com/auth/drive.readonly'],

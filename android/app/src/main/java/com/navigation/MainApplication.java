@@ -37,6 +37,8 @@ import org.reactnative.camera.RNCameraPackage;
 
 import java.util.Arrays;
 import java.util.List;
+
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
  
 public class MainApplication extends NavigationApplication { 
 
@@ -71,7 +73,7 @@ public class MainApplication extends NavigationApplication {
 
         new RNCameraPackage(),
         new MainReactPackage(),
-            new RNGoogleSigninPackage(),
+        new RNGoogleSigninPackage(),
  
         new FBSDKPackage(mCallbackManager),
 
@@ -80,6 +82,8 @@ public class MainApplication extends NavigationApplication {
         new RNFirebaseNotificationsPackage(),
         
         new RNFirebaseAuthPackage(),
+
+        new SplashScreenReactPackage() ,
 
         new MapsPackage() 
     );
