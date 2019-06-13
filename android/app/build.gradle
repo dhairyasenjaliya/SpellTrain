@@ -159,8 +159,8 @@ dependencies {
     // implementation 'com.android.support.constraint:constraint-layout:1.1.0-beta3'
     implementation 'me.leolin:ShortcutBadger:1.1.21@aar'
       implementation(project(':react-native-firebase'))  
-
-  implementation 'com.facebook.android:facebook-android-sdk:4.34.0'
+      
+implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
     implementation project(':react-native-fbsdk')
 
 }
