@@ -235,16 +235,26 @@ class Login extends PureComponent {
 							onLogoutFinished={() => console.log('logout.')}
 						/> */}
 
-						<Button
-						
+						<TouchableHighlight
+							style={styles.facebook}
+							onPress={() => {
+								{
+									this._onFBButtonPress();
+								}
+							}}
+						>
+							<Text style={styles.fbText}>FaceBook</Text>
+						</TouchableHighlight>
+
+						{/* <Button
 							onPress={() => this._onFBButtonPress()}
 							buttonStyle={'buttonFb'}
 							labelStyle={'buttonFbText'}
 							title="Login"
-						/>
+						/> */}
 
 						<GoogleSigninButton
-							style={{ width: 192, height: 37, borderRadius: 50, top: -4 }}
+							style={{ width: 192, height: 40, top: -3 }}
 							size={GoogleSigninButton.Size.Wide}
 							color={GoogleSigninButton.Color.Dark}
 							onPress={this.state.user == null ? this._signIn : this._signOut}
@@ -289,13 +299,27 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 	},
 
+	facebook: {
+		width: 180,
+		height: 35,
+		alignItems: 'center',
+		backgroundColor: '#3b5998',
+		borderRadius: 5,
+	},
+
+	fbText: {
+		color: '#ffffff',
+		fontSize: 18,
+		fontWeight: 'bold',
+		top: 5,
+	},
 	button: {
 		top: '10%',
 		width: 320,
 		height: 60,
 		alignItems: 'center',
 		backgroundColor: '#ffffff',
-		borderRadius: 100,
+		borderRadius: 30,
 		alignSelf: 'center',
 	},
 	buttonText: {
@@ -323,9 +347,9 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	faceimage: {
-		height : 120,
+		height: 120,
 		width: 120,
-		borderRadius : 100 ,
+		borderRadius: 100,
 		top: '15%',
 		alignSelf: 'center',
 	},
@@ -334,5 +358,6 @@ const styles = StyleSheet.create({
 		alignSelf: 'stretch',
 	},
 });
+
 
 export default Login;
