@@ -2,6 +2,8 @@
 import {Navigation} from 'react-native-navigation';   
 import firebase from 'react-native-firebase';
 
+import { GoogleSignin, GoogleSigninButton, statusCodes } from 'react-native-google-signin';
+
 import React, { PureComponent } from 'react';
 import { 
 	StyleSheet,
@@ -12,14 +14,33 @@ import {
 	TouchableHighlight,
 	TextInput,
 	Alert,
-	YellowBox,  
+	YellowBox, 
+	Button 
 } from 'react-native';  
-import { LoginButton, AccessToken } from 'react-native-fbsdk';
+
+import { LoginButton, AccessToken, LoginManager } from 'react-native-fbsdk'; 
+   
 
 YellowBox.ignoreWarnings(['Require cycle:']); 
 
 class Login extends PureComponent {
-	state = { email: '', password: '', errorMessage: null };
+	state = { user: null, userInfo: '', email: '', password: '', errorMessage: null };
+
+	// For Console eror In fb
+
+	_onFBButtonPress() {
+	 LoginManager.logInWithReadPermissions(['public_profile', 'email'])
+			.then(result => {
+				console.log('result', result);
+				if (!result.isCancelled) {
+					return AccessToken.getCurrentAccessToken();
+				}
+			})
+			.then(data => {
+				console.log('data', data);
+			})
+			.catch(error => console.log(`Login fail with error: ${error}`));
+	}
 
 	handleSignUp = () => {
 		if (this.state.email == '' || this.state.password == '') {
@@ -41,7 +62,7 @@ class Login extends PureComponent {
 
 	handleLogin = () => {
 		if (this.state.email === '' || this.state.password === '') {
-			Alert.alert('Please Provide Email AND Password')
+			Alert.alert('Please Provide Email AND Password');
 		} else {
 			const { email, password } = this.state;
 			firebase
@@ -54,10 +75,7 @@ class Login extends PureComponent {
 						},
 					});
 				})
-				.catch(
-					error => this.setState({ errorMessage: error.message })
-					
-				);
+				.catch(error => this.setState({ errorMessage: error.message }));
 		}
 	};
 
@@ -74,7 +92,71 @@ class Login extends PureComponent {
 		}
 	};
 
+	componentDidMount() {
+		GoogleSignin.configure({
+			//It is mandatory to call this method before attempting to call signIn()
+			scopes: ['https://www.googleapis.com/auth/drive.readonly'],
+			// Repleace with your webClientId generated from Firebase console
+			webClientId: '86734367320-b8arsdhcurk3erfkdh1h2jrtm0pplbhv.apps.googleusercontent.com',
+		});
+	}
+	_signIn = async () => {
+		//Prompts a modal to let the user sign in into your application.
+		try {
+			await GoogleSignin.hasPlayServices({
+				//Check if device has Google Play Services installed.
+				//Always resolves to true on iOS.
+				showPlayServicesUpdateDialog: true,
+			});
+			const userInfo = await GoogleSignin.signIn();
+			console.log('User Info --> ', userInfo);
+			this.setState({ user: userInfo.user });
+		} catch (error) {
+			console.log('Message', error.message);
+			if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+				console.log('User Cancelled the Login Flow');
+			} else if (error.code === statusCodes.IN_PROGRESS) {
+				console.log('Signing In');
+			} else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+				console.log('Play Services Not Available or Outdated');
+			} else {
+				console.log('Some Other Error Happened');
+			}
+		}
+	};
+	_getCurrentUser = async () => {
+		//May be called eg. in the componentDidMount of your main component.
+		//This method returns the current user
+		//if they already signed in and null otherwise.
+		try {
+			const userInfo = await GoogleSignin.signInSilently();
+			this.setState({ userInfo });
+		} catch (error) {
+			console.error(error);
+		}
+	};
+	_signOut = async () => {
+		//Remove user session from the device.
+		try {
+			await GoogleSignin.revokeAccess();
+			await GoogleSignin.signOut();
+			this.setState({ user: null }); // Remove the user from your app's state as well
+		} catch (error) {
+			console.error(error);
+		}
+	};
+	_revokeAccess = async () => {
+		//Remove your application from the user authorized applications.
+		try {
+			await GoogleSignin.revokeAccess();
+			console.log('deleted');
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
 	render() {
+		let path2 = '/Users/mymac/Development/react-native/navigation/images/face.png';
 		return (
 			<View style={styles.container}>
 				<ImageBackground
@@ -83,12 +165,11 @@ class Login extends PureComponent {
 				>
 					<Image
 						style={styles.faceimage}
-						source={require('/Users/mymac/Development/react-native/navigation/images/face.png')}
+						source={this.state.user == null ? require(path2) : { uri: this.state.user.photo }}
 					/>
 
 					<Text style={styles.spelltrain}> SpellTrain </Text>
 					<Text style={styles.master}> Master the art of spelling </Text>
-
 					<View style={styles.Input}>
 						<TextInput
 							placeholder="Email"
@@ -114,7 +195,6 @@ class Login extends PureComponent {
 							value={this.state.password}
 						/>
 					</View>
-
 					<View style={{ top: 50 }}>
 						<TouchableHighlight
 							style={styles.button}
@@ -127,7 +207,6 @@ class Login extends PureComponent {
 							<Text style={styles.buttonText}>Login with Amazon</Text>
 						</TouchableHighlight>
 					</View>
-
 					<TouchableHighlight
 						style={styles.button}
 						onPress={() => {
@@ -138,8 +217,8 @@ class Login extends PureComponent {
 					>
 						<Text style={styles.buttonText}>SignUp</Text>
 					</TouchableHighlight>
-					<View style = {{ alignSelf:'center' ,top : 100}}>
-						<LoginButton
+					<View style={{ alignSelf: 'center', top: 100, flexDirection: 'row' }}>
+						{/* <LoginButton
 							onLoginFinished={(error, result) => {
 								if (error) {
 									console.warn('login has error: ' + result.error);
@@ -148,10 +227,28 @@ class Login extends PureComponent {
 								} else {
 									AccessToken.getCurrentAccessToken().then(data => {
 										console.warn(data.accessToken.toString());
+										console.warn(data);
+
 									});
 								}
 							}}
 							onLogoutFinished={() => console.log('logout.')}
+						/> */}
+
+						<Button
+						
+							onPress={() => this._onFBButtonPress()}
+							buttonStyle={'buttonFb'}
+							labelStyle={'buttonFbText'}
+							title="Login"
+						/>
+
+						<GoogleSigninButton
+							style={{ width: 192, height: 37, borderRadius: 50, top: -4 }}
+							size={GoogleSigninButton.Size.Wide}
+							color={GoogleSigninButton.Color.Dark}
+							onPress={this.state.user == null ? this._signIn : this._signOut}
+							disabled={this.state.isSigninInProgress}
 						/>
 					</View>
 					{/* <Text style={styles.amazon} > What is Amazon Alexa?</Text> */}
@@ -226,6 +323,9 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	faceimage: {
+		height : 120,
+		width: 120,
+		borderRadius : 100 ,
 		top: '15%',
 		alignSelf: 'center',
 	},

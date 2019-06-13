@@ -3,6 +3,7 @@ package com.navigation;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 
 import io.invertase.firebase.RNFirebasePackage;
@@ -13,7 +14,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 
-
+import co.apptailor.googlesignin.RNGoogleSigninPackage; 
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk; 
@@ -70,6 +71,7 @@ public class MainApplication extends NavigationApplication {
 
         new RNCameraPackage(),
         new MainReactPackage(),
+            new RNGoogleSigninPackage(),
  
         new FBSDKPackage(mCallbackManager),
 
