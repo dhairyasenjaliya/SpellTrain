@@ -97,7 +97,7 @@ class Login extends PureComponent {
 
 		setTimeout(() => {
 			SplashScreen.hide();
-		}, 1000);
+		}, 100);
 
 		GoogleSignin.configure({
 			//It is mandatory to call this method before attempting to call signIn()

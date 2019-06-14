@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 public class MainActivity extends NavigationActivity { 
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    SplashScreen.show(this); // here
-    super.onCreate(savedInstanceState);
-  }
+  // @Override
+  // protected void onCreate(Bundle savedInstanceState) {
+  //   SplashScreen.show(this);  
+  //   super.onCreate(savedInstanceState);
+  // }
 
    @Override
   public void onActivityResult(int requestCode, int resultCode, Intent data) {

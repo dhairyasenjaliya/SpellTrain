@@ -4,27 +4,32 @@ import {
 import {
   registerScreens
 } from './src/screens';
- 
+
+import { YellowBox } from 'react-native'; 
+
+YellowBox.ignoreWarnings(['Require cycle:']);
 
 registerScreens();
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
-    root: {
-      stack: {
-        children: [{
-          component: {
-            name: 'Login'
-          }
-        }],
-        options: {
-          topBar: {
-            title: {
-              text: 'Demo',
-            }, 
-            height: 0
-          }
-        }
-      }
-    }
+		root: {
+			stack: {
+				children: [
+					{
+						component: {
+							name: 'AddTask',
+						},
+					},
+				],
+				options: {
+					topBar: {
+						title: {
+							text: 'Demo',
+						},
+						height: 0,
+					},
+				},
+			},
+		},
   });
 });

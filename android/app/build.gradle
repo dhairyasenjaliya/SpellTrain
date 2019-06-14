@@ -109,6 +109,7 @@ android {
         versionName "1.0"
         missingDimensionStrategy "RNN.reactNativeVersion", "reactNative57_5"
         missingDimensionStrategy 'react-native-camera', 'general'
+        multiDexEnabled true 
     }
     splits {
         abi {
@@ -169,6 +170,8 @@ dependencies {
     implementation(project(":react-native-google-signin"))
 
     implementation project(':react-native-splash-screen')
+
+    implementation "com.google.firebase:firebase-firestore:19.0.0"
 }
 
 

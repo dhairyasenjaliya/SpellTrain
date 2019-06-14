@@ -24,7 +24,9 @@ import com.reactnativenavigation.react.NavigationReactNativeHost;
 import com.reactnativenavigation.react.ReactGateway;
 import com.airbnb.android.react.maps.MapsPackage;
 
- 
+
+
+import io.invertase.firebase.firestore.RNFirebaseFirestorePackage; 
 import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
 import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
 
@@ -80,6 +82,7 @@ public class MainApplication extends NavigationApplication {
         new RNFirebasePackage(), 
         new RNFirebaseMessagingPackage(),
         new RNFirebaseNotificationsPackage(),
+        new RNFirebaseFirestorePackage(),
         
         new RNFirebaseAuthPackage(),
 

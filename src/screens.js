@@ -18,4 +18,8 @@ export function registerScreens() {
   Navigation.registerComponent('SignUp', () => require('./screens/SignUp').default);  
   Navigation.registerComponent('Initialize', () => require('./screens/Initialize').default);  
 
+  Navigation.registerComponent('AddTask', () => require('./screens/AddTask').default);   
+  
+  Navigation.registerComponent('ToDo', () => require('./screens/ToDo').default);  
+
 }

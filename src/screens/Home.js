@@ -3,8 +3,7 @@ import React, {
 } from 'react';
 import {Platform, StyleSheet, Text, View,Image,ImageBackground ,TouchableOpacity ,ScrollView} from 'react-native';  
 import {Navigation} from 'react-native-navigation'; 
-import firebase from 'react-native-firebase';
-
+// import firebase from 'react-native-firebase'; 
 
 export default class App extends PureComponent { 
 
@@ -100,7 +99,6 @@ export default class App extends PureComponent {
 					</View>
 
 					<View style={styles.viewThree}>
-
 						<View style={styles.viewOne}>
 							<TouchableOpacity
 								style={styles.button}
@@ -119,7 +117,7 @@ export default class App extends PureComponent {
 								<Text style={styles.buttonText}>Map</Text>
 							</TouchableOpacity>
 						</View>
-            
+
 						<View style={styles.viewOne}>
 							<TouchableOpacity
 								style={styles.button}
@@ -135,10 +133,51 @@ export default class App extends PureComponent {
 									style={{ height: 70, width: 70 }}
 									source={require('/Users/mymac/Development/react-native/navigation/images/firebase.png')}
 								/>
-								<Text style={styles.buttonText}>FireBase</Text>
+								<Text style={styles.buttonText}>FireBase Notification</Text>
 							</TouchableOpacity>
 						</View>
 					</View>
+
+					<View style={styles.viewFour}>
+						<View style={styles.viewOne}>
+							<TouchableOpacity
+								style={styles.button}
+								onPress={() => {
+									Navigation.push(this.props.componentId, {
+										component: {
+											name: 'AddTask',
+										},
+									});
+								}}
+							>
+								<Image
+									style={{ height: 70, width: 70 }}
+									source={require('/Users/mymac/Development/react-native/navigation/images/todo.png')}
+								/>
+								<Text style={styles.buttonText}>TODO</Text>
+							</TouchableOpacity>
+						</View>
+
+						<View style={styles.viewOne}>
+							<TouchableOpacity
+								style={styles.button}
+								onPress={() => {
+									Navigation.push(this.props.componentId, {
+										component: {
+											name: 'AddTask',
+										},
+									});
+								}}
+							>
+								<Image
+									style={{ height: 70, width: 70 }}
+									source={require('/Users/mymac/Development/react-native/navigation/images/firebase.png')}
+								/>
+								<Text style={styles.buttonText}>FireBase Notification</Text>
+							</TouchableOpacity>
+						</View>
+					</View>
+
 				</ImageBackground>
 			</ScrollView>
 		</View>
@@ -147,8 +186,14 @@ export default class App extends PureComponent {
 }
 
 const styles = StyleSheet.create({
-	viewThree: {
 
+	viewFour: {
+		flexDirection: 'row',
+		marginTop: -20,
+		padding: 5,
+	},
+	
+	viewThree: {
 		flexDirection: 'row',
 		marginTop: -30,
 		padding: 5,
