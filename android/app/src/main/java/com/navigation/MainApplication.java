@@ -24,7 +24,7 @@ import com.reactnativenavigation.react.NavigationReactNativeHost;
 import com.reactnativenavigation.react.ReactGateway;
 import com.airbnb.android.react.maps.MapsPackage;
 
-
+import com.oblador.vectoricons.VectorIconsPackage;
 
 import io.invertase.firebase.firestore.RNFirebaseFirestorePackage; 
 import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
@@ -88,7 +88,9 @@ public class MainApplication extends NavigationApplication {
 
         new SplashScreenReactPackage() ,
 
-        new MapsPackage() 
+        new MapsPackage() ,
+
+        new VectorIconsPackage()
     );
   }
 

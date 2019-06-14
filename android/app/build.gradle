@@ -172,6 +172,8 @@ dependencies {
     implementation project(':react-native-splash-screen')
 
     implementation "com.google.firebase:firebase-firestore:19.0.0"
+
+    implementation project(':react-native-vector-icons')
 }
 
 
@@ -183,3 +185,4 @@ task copyDownloadableDepsToLibs(type: Copy) {
 }
  
  apply plugin: 'com.google.gms.google-services'
+ apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"

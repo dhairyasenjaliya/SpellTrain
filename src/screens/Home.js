@@ -154,7 +154,8 @@ export default class App extends PureComponent {
 									style={{ height: 70, width: 70 }}
 									source={require('/Users/mymac/Development/react-native/navigation/images/todo.png')}
 								/>
-								<Text style={styles.buttonText}>TODO</Text>
+								<Text>TODO </Text>
+								<Text>(FireBase Cloud Storage)</Text>
 							</TouchableOpacity>
 						</View>
 
@@ -177,7 +178,6 @@ export default class App extends PureComponent {
 							</TouchableOpacity>
 						</View>
 					</View>
-
 				</ImageBackground>
 			</ScrollView>
 		</View>
