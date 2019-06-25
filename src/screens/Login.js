@@ -162,11 +162,11 @@ class Login extends PureComponent {
 	};
 
 	render() {
-		let path2 = '/Users/mymac/Development/react-native/navigation/images/face.png';
+		let path2 = '../../images/face.png';
 		return (
 			<View style={styles.container}>
 				<ImageBackground
-					source={require('/Users/mymac/Development/react-native/navigation/images/bg.png')}
+					source={require('../../images/bg.png')}
 					style={styles.backgroundImage}
 				>
 					<Image

@@ -18,10 +18,7 @@ export default class App extends PureComponent {
     return (
 		<View style={styles.container}>
 			<ScrollView>
-				<ImageBackground
-					source={require('/Users/mymac/Development/react-native/navigation/images/bg.png')}
-					style={styles.backgroundImage}
-				>
+				<ImageBackground source={require('../../images/bg.png')} style={styles.backgroundImage}>
 					<View style={styles.viewOne}>
 						<View style={styles.viewOne}>
 							<TouchableOpacity
@@ -34,10 +31,7 @@ export default class App extends PureComponent {
 									});
 								}}
 							>
-								<Image
-									style={styles.faceimage}
-									source={require('/Users/mymac/Development/react-native/navigation/images/mic.png')}
-								/>
+								<Image style={styles.faceimage} source={require('../../images/mic.png')} />
 								<Text style={styles.buttonText}>Start Training</Text>
 							</TouchableOpacity>
 						</View>
@@ -54,7 +48,7 @@ export default class App extends PureComponent {
 							>
 								<Image
 									// style={styles.faceimage}
-									source={require('/Users/mymac/Development/react-native/navigation/images/bookmark.png')}
+									source={require('../../images/bookmark.png')}
 								/>
 								<Text style={styles.buttonText}>Wordlist</Text>
 							</TouchableOpacity>
@@ -72,9 +66,7 @@ export default class App extends PureComponent {
 									});
 								}}
 							>
-								<Image
-									source={require('/Users/mymac/Development/react-native/navigation/images/user.png')}
-								/>
+								<Image source={require('../../images/user.png')} />
 								<Text style={styles.buttonText}>Your Profile</Text>
 							</TouchableOpacity>
 						</View>
@@ -91,7 +83,7 @@ export default class App extends PureComponent {
 							>
 								<Image
 									style={{ height: 65, width: 65 }}
-									source={require('/Users/mymac/Development/react-native/navigation/images/camera.png')}
+									source={require('../../images/camera.png')}
 								/>
 								<Text style={styles.buttonText}>Camera</Text>
 							</TouchableOpacity>
@@ -110,10 +102,7 @@ export default class App extends PureComponent {
 									});
 								}}
 							>
-								<Image
-									style={{ height: 70, width: 70 }}
-									source={require('/Users/mymac/Development/react-native/navigation/images/map.png')}
-								/>
+								<Image style={{ height: 70, width: 70 }} source={require('../../images/map.png')} />
 								<Text style={styles.buttonText}>Map</Text>
 							</TouchableOpacity>
 						</View>
@@ -131,7 +120,7 @@ export default class App extends PureComponent {
 							>
 								<Image
 									style={{ height: 70, width: 70 }}
-									source={require('/Users/mymac/Development/react-native/navigation/images/firebase.png')}
+									source={require('../../images/firebase.png')}
 								/>
 								<Text style={styles.buttonText}>FireBase Notification</Text>
 							</TouchableOpacity>
@@ -152,7 +141,7 @@ export default class App extends PureComponent {
 							>
 								<Image
 									style={{ height: 70, width: 70 }}
-									source={require('/Users/mymac/Development/react-native/navigation/images/todo.png')}
+									source={require('../../images/todo.png')}
 								/>
 								<Text>TODO </Text>
 								<Text>(FireBase Cloud Storage)</Text>
@@ -170,10 +159,7 @@ export default class App extends PureComponent {
 									});
 								}}
 							>
-								<Image
-									style={{ height: 70, width: 70 }}
-									source={require('/Users/mymac/Development/react-native/navigation/images/firebase.png')}
-								/>
+								<Image style={{ height: 70, width: 70 }} source={require('../../images/firebase.png')} />
 								<Text style={styles.buttonText}>FireBase Notification</Text>
 							</TouchableOpacity>
 						</View>

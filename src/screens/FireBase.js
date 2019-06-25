@@ -52,12 +52,12 @@ class FireBase extends PureComponent {
 		return (
 			<View style={styles.container}>
 				<ImageBackground
-					source={require('/Users/mymac/Development/react-native/navigation/images/bg.png')}
+					source={require('../../images/bg.png')}
 					style={styles.backgroundImage}
 				>
 					<Image
 						style={styles.faceimage}
-						source={require('/Users/mymac/Development/react-native/navigation/images/face.png')}
+						source={require('../../images/face.png')}
 					/>
 
 					<Text style={styles.spelltrain}> FireBase </Text>

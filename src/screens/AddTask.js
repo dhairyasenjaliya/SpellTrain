@@ -83,7 +83,7 @@ class AddTask extends PureComponent {
 
 		return (
 			<ImageBackground
-				source={require('/Users/mymac/Development/react-native/navigation/images/bg.png')}
+				source={require('../../images/bg.png')}
 				style={styles.backgroundImage}
 			>
 				<View style={styles.Card}>

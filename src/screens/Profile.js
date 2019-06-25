@@ -22,7 +22,7 @@ export default class App extends PureComponent {
   render() {  
     return (
       <View style={styles.container}>
-         <ImageBackground source={require('/Users/mymac/Development/react-native/navigation/images/bg.png')} style={styles.backgroundImage} > 
+         <ImageBackground source={require('../../images/bg.png')} style={styles.backgroundImage} > 
           <CardView  style={styles.card} cardElevation={55}
                           maxCardElevation={26}  
                           radius={5}

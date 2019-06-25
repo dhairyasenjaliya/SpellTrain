@@ -11,7 +11,7 @@ export default class App extends PureComponent {
   render() {  
     return (
       <View style={styles.container}>
-         <ImageBackground source={require('/Users/mymac/Development/react-native/navigation/images/bg.png')} style={styles.backgroundImage} > 
+         <ImageBackground source={require('../../images/bg.png')} style={styles.backgroundImage} > 
             <View style = {styles.head}>
                 <Text style = {{ color:'white' , fontSize:20, fontWeight:'bold' }}>Start Training</Text>
             </View> 
@@ -24,7 +24,7 @@ export default class App extends PureComponent {
                     <TouchableOpacity>
                       <Image 
                           style = { styles.image }
-                          source={require('/Users/mymac/Development/react-native/navigation/images/microphone.png')}
+                          source={require('../../images/microphone.png')}
                       />  
                     </TouchableOpacity>
                 </View>
@@ -57,7 +57,7 @@ export default class App extends PureComponent {
                 }
               }
           > 
-              <Text style={styles.button}> <Image source={require('/Users/mymac/Development/react-native/navigation/images/loading.png')}/> Processing...</Text> 
+              <Text style={styles.button}> <Image source={require('../../images/loading.png')}/> Processing...</Text> 
           </TouchableOpacity>
         </ImageBackground>
       </View>
